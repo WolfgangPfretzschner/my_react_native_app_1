@@ -13,6 +13,7 @@ const Card = (props) => {
 console.log("%ctestq","color:red;font-size:18px",)
 const styles = {
    containerStyle: {
+      // flexDirection: 'row',
       fill: '#ddd',
       borderWidth: 1,
       borderRadius: 2,
