@@ -5,7 +5,8 @@ import CardSection from './CardSection'
 import { Avatar } from 'react-native-elements'
 
 const AlbumDetail = ({ album }) => {
-  const { title, artist, thumbnail_image} = album
+  const { title, artist, thumbnail_image, image} = album
+  const { imageStyle } = styles
   return (
     <Card>
       <CardSection>
@@ -14,7 +15,7 @@ const AlbumDetail = ({ album }) => {
         medium
         rounded
         source={{uri: thumbnail_image}}
-        onPress={() => console.log(`Works with ${title} Fucker `)}
+        onPress={() => console.log(`Works with ${title}`)}
         activeOpacity={0.7}
       />
       </View>
@@ -23,11 +24,21 @@ const AlbumDetail = ({ album }) => {
         source={{ uri: thumbnail_image}}/> */}
       
       <View style={styles.headerContentStyle}>
-        <Text style={styles.headerTextStyle}> {title} </Text>
+        <Text style={styles.headerTextStyle}> 
+          {title} 
+        </Text>
         <Text> {artist} </Text>
       </View>
-     <Image style={styles.iconStyle} source={require("../../assets/path.png")}/>
+     
       
+      </CardSection>
+        
+      <CardSection>
+      <Image 
+          source={ { uri: image } } 
+          style={imageStyle}
+          
+        />
       </CardSection>
     
     </Card>
@@ -38,6 +49,11 @@ const styles = {
   headerContentStyle: {
     flexDirection: 'column',
     justifyContent: 'space-around'
+  },
+  imageStyle: {
+    height: 300,
+    flex: 1,
+    width: null
   },
   headerTextStyle:{
     fontSize: 18,
